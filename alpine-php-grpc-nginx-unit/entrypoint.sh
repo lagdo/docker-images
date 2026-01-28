@@ -26,7 +26,7 @@ if [ "$1" = "unitd" ] || [ "$1" = "unitd-debug" ]; then
         echo "$0: /var/lib/unit/ is not empty, skipping initial configuration..."
     else
         echo "$0: Launching Unit daemon to perform initial configuration..."
-        /usr/local/sbin/$1 --control unix:/var/run/control.unit.sock --pid /var/run/unit.pid
+        /usr/local/sbin/$1 --control unix:/var/run/control.unit.sock --pid /var/run/unit.pid --log /var/log/unit.log
 
         for i in $(/usr/bin/seq $WAITLOOPS); do
             if [ ! -S /var/run/control.unit.sock ]; then

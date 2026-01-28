@@ -45,8 +45,8 @@ RUN cp -R /opt/unit/usr/local/* /usr/local
 COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock" ]
+ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
+CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock", "--log", "/var/log/unit.log" ]
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \

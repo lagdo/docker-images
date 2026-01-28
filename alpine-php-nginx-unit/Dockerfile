@@ -61,8 +61,8 @@ ENV RUN_INSTALL=false
 ENV COMMAND_USER=
 ENV INSTALL_OPTIONS=install
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-CMD ["unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock"]
+ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
+CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock", "--log", "/var/log/unit.log" ]
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \
