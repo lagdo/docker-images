@@ -5,7 +5,7 @@ FROM lagdo/alpine-php-grpc
 RUN set -xe && apk update && apk upgrade --no-cache --available
 
 RUN install-php-extensions opcache zip intl sockets bcmath ctype phar \
-  curl dom fileinfo gd mbstring openssl redis tokenizer
+  curl soap dom fileinfo gd mbstring openssl redis tokenizer
 
 # RoadRunner
 COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr

@@ -28,7 +28,7 @@ RUN set -xe && \
 COPY --from=php-extension-installer ["/usr/bin/install-php-extensions", "/usr/local/bin/install-php-extensions"]
 
 RUN install-php-extensions opcache zip intl sockets bcmath ctype phar \
-  curl dom fileinfo gd mbstring openssl redis tokenizer
+  curl soap dom fileinfo gd mbstring openssl redis tokenizer
 
 # PHP Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer

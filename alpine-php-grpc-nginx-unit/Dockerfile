@@ -34,7 +34,7 @@ FROM lagdo/alpine-php-zts-grpc
 RUN set -xe && apk update && apk upgrade --no-cache --available
 
 RUN install-php-extensions opcache zip intl sockets bcmath ctype phar \
-  curl dom fileinfo gd mbstring openssl redis tokenizer && \
+  curl soap dom fileinfo gd mbstring openssl redis tokenizer && \
   set -xe && apk add --no-cache --virtual .build-deps pcre-dev pcre
 
 # Install Nginx Unit
