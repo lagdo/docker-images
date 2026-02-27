@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# Install Composer packages
+/usr/local/bin/php-command.sh
+
 if [ "${RR_CONFIG_FILE}" == "" ]
 then
     RR_CONFIG_FILE=/var/www/rr.yaml
