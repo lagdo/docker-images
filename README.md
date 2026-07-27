@@ -4,7 +4,7 @@
 
 Alpine + Chromium + Nginx
 
-### alpine-php-nginx-unit
+### alpine-php-free-unit
 
 Alpine + PHP + Nginx Unit
 
@@ -20,7 +20,7 @@ Alpine + PHP + GRPC (thread-safe PHP)
 
 Alpine + PHP + GRPC + RoadRunner
 
-### alpine-php-grpc-nginx-unit
+### alpine-php-grpc-free-unit
 
 Alpine + PHP + GRPC + Nginx Unit
 

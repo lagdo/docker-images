@@ -8,7 +8,7 @@ function exit_on_error()
     exit 1;
 }
 
-for name in chromium-nginx php-grpc php-zts-grpc php-grpc-nginx-unit phpfpm-grpc php-nginx-unit php-grpc-roadrunner php-grpc-frankenphp
+for name in chromium-nginx php-grpc php-zts-grpc php-grpc-free-unit phpfpm-grpc php-free-unit php-grpc-roadrunner php-grpc-frankenphp
 do
     image="alpine-${name}"
 

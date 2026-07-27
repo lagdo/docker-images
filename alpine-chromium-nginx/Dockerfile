@@ -1,4 +1,4 @@
-FROM alpine:3.23
+FROM alpine:3.24
 
 # Default values for env vars.
 ENV NGINX_PORT=9222
@@ -42,4 +42,4 @@ LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \
   org.opencontainers.image.description="A headless Chromium browser with Nginx running in front." \
   org.opencontainers.image.licenses="MIT License" \
-  org.opencontainers.image.version="0.1.0"
+  org.opencontainers.image.version="0.2.0"

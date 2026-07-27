@@ -1,6 +1,6 @@
-ARG ALPINE_VERSION=3.23
+ARG ALPINE_VERSION=3.24
 ARG PHP_VERSION=8.4
-ARG PROTOBUF_VERSION=4.33.0
+ARG PROTOBUF_VERSION=5.35.1
 
 # PHP extension installer
 FROM mlocati/php-extension-installer:2 AS php-extension-installer
@@ -45,4 +45,4 @@ LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \
   org.opencontainers.image.description="Threadsafe PHP with the GRPC module." \
   org.opencontainers.image.licenses="MIT License" \
-  org.opencontainers.image.version="0.1.0"
+  org.opencontainers.image.version="0.2.0"
