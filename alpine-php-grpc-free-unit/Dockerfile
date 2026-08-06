@@ -3,7 +3,7 @@ ARG PHP_VERSION=8.5
 ARG UNIT_VERSION=1.36.0
 ARG PHP_ALPINE_VERSION=${PHP_VERSION}-zts-alpine${ALPINE_VERSION}
 
-# Nginx Unit downloader
+# Free Unit downloader
 FROM alpine:${ALPINE_VERSION} AS free-unit-downloader
 
 ARG UNIT_VERSION
@@ -11,7 +11,7 @@ WORKDIR "/tmp/unit"
 ADD ["https://codeload.github.com/freeunitorg/freeunit/tar.gz/refs/tags/${UNIT_VERSION}", "/tmp/unit.tar.gz"]
 RUN tar zxvf /tmp/unit.tar.gz --strip=1 -C "/tmp/unit"
 
-# Nginx Unit builder
+# Free Unit builder
 ARG ALPINE_VERSION
 FROM php:${PHP_ALPINE_VERSION} AS free-unit-builder
 
@@ -37,11 +37,11 @@ RUN install-php-extensions opcache zip intl sockets bcmath ctype phar \
   curl soap dom fileinfo gd mbstring openssl redis tokenizer && \
   set -xe && apk add --no-cache --virtual .build-deps pcre-dev pcre
 
-# Install Nginx Unit
+# Install Free Unit
 COPY --from=free-unit-builder ["/opt/unit/", "/opt/unit/"]
 RUN cp -R /opt/unit/usr/local/* /usr/local
 
-# Copy Nginx Unit entry point script
+# Copy Free Unit entry point script
 COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
@@ -50,6 +50,6 @@ CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock", "-
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \
-  org.opencontainers.image.description="Nginx Unit and PHP with the GRPC module." \
+  org.opencontainers.image.description="Free Unit and PHP with the GRPC module." \
   org.opencontainers.image.licenses="MIT License" \
   org.opencontainers.image.version="0.2.0"

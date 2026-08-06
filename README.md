@@ -6,7 +6,7 @@ Alpine + Chromium + Nginx
 
 ### alpine-php-free-unit
 
-Alpine + PHP + Nginx Unit
+Alpine + PHP + Free Unit
 
 ### alpine-php-grpc
 
@@ -22,7 +22,7 @@ Alpine + PHP + GRPC + RoadRunner
 
 ### alpine-php-grpc-free-unit
 
-Alpine + PHP + GRPC + Nginx Unit
+Alpine + PHP + GRPC + Free Unit
 
 ### alpine-php-grpc-frankenphp
 

@@ -6,7 +6,7 @@ ARG PHP_ALPINE_VERSION=${PHP_VERSION}-zts-alpine${ALPINE_VERSION}
 # PHP extension installer
 FROM mlocati/php-extension-installer:2 AS php-extension-installer
 
-# Nginx Unit downloader
+# Free Unit downloader
 FROM alpine:${ALPINE_VERSION} AS free-unit-downloader
 
 ARG UNIT_VERSION
@@ -15,7 +15,7 @@ WORKDIR "/tmp/unit"
 ADD ["https://codeload.github.com/freeunitorg/freeunit/tar.gz/refs/tags/${UNIT_VERSION}", "/tmp/unit.tar.gz"]
 RUN tar zxvf /tmp/unit.tar.gz --strip=1 -C "/tmp/unit"
 
-# Nginx Unit builder
+# Free Unit builder
 ARG ALPINE_VERSION
 FROM php:${PHP_ALPINE_VERSION} AS free-unit-builder
 
@@ -47,11 +47,11 @@ RUN set -xe && \
 # PHP Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-# Nginx Unit
+# Free Unit
 COPY --from=free-unit-builder ["/opt/unit/", "/opt/unit/"]
 RUN cp -R /opt/unit/usr/local/* /usr/local
 
-# Copy Nginx Unit entry point and PHP install scripts
+# Copy Free Unit entry point and PHP install scripts
 COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 COPY ./php-command.sh /usr/local/bin/php-command.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh && \
@@ -67,6 +67,6 @@ CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock", "-
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
   org.opencontainers.image.source="https://github.com/lagdo/docker" \
-  org.opencontainers.image.description="Nginx Unit and PHP." \
+  org.opencontainers.image.description="Free Unit and PHP." \
   org.opencontainers.image.licenses="MIT License" \
   org.opencontainers.image.version="0.2.0"
