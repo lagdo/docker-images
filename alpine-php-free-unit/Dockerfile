@@ -66,7 +66,7 @@ ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
 CMD [ "unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock", "--log", "/var/log/unit.log" ]
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
-  org.opencontainers.image.source="https://github.com/lagdo/docker" \
+  org.opencontainers.image.source="https://github.com/lagdo/docker-images" \
   org.opencontainers.image.description="Free Unit and PHP." \
   org.opencontainers.image.licenses="MIT License" \
   org.opencontainers.image.version="0.2.0"

@@ -18,7 +18,7 @@ RUN set -xe && apk update && apk upgrade --no-cache --available && \
 ENTRYPOINT ["/usr/local/bin/rr-entrypoint.sh"]
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
-  org.opencontainers.image.source="https://github.com/lagdo/docker" \
+  org.opencontainers.image.source="https://github.com/lagdo/docker-images" \
   org.opencontainers.image.description="RoadRunner and PHP with the GRPC module." \
   org.opencontainers.image.licenses="MIT License" \
   org.opencontainers.image.version="0.2.0"

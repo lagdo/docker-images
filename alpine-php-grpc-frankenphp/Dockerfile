@@ -50,7 +50,7 @@ ENTRYPOINT ["/usr/local/bin/php-entrypoint.sh"]
 CMD ["--config", "/etc/frankenphp/Caddyfile", "--adapter", "caddyfile"]
 
 LABEL maintainer="Thierry Feuzeu <thierry.feuzeu@gmail.com>" \
-  org.opencontainers.image.source="https://github.com/lagdo/docker" \
+  org.opencontainers.image.source="https://github.com/lagdo/docker-images" \
   org.opencontainers.image.description="FrankenPHP with the GRPC module." \
   org.opencontainers.image.licenses="MIT License" \
   org.opencontainers.image.version="0.2.0"
