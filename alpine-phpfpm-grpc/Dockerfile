@@ -43,9 +43,10 @@ RUN chmod +x /usr/local/bin/php-command.sh && \
   chmod +x /usr/local/bin/php-entrypoint.sh
 
 # By default, run composer install with no additional option
-ENV RUN_INSTALL=false
+ENV RUN_COMPOSER=false
 ENV COMMAND_USER=
-ENV INSTALL_OPTIONS=install
+ENV COMMAND_DIR=/var/www
+ENV COMPOSER_OPTIONS=install
 
 ENTRYPOINT ["/usr/local/bin/php-entrypoint.sh"]
 

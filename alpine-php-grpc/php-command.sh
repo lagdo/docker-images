@@ -2,13 +2,13 @@
 
 COMMAND=$1
 
-if [ "${RUN_INSTALL}" == "true" ]
+if [ "${RUN_COMPOSER}" == "true" ]
 then
     if [ "${COMMAND_USER}" == "" ]
     then
-        (cd ${COMMAND_DIR} && composer ${INSTALL_OPTIONS})
+        (cd ${COMMAND_DIR} && composer ${COMPOSER_OPTIONS})
     else
-        (cd ${COMMAND_DIR} && su ${COMMAND_USER} -c 'composer ${INSTALL_OPTIONS}')
+        (cd ${COMMAND_DIR} && su ${COMMAND_USER} -c 'composer ${COMPOSER_OPTIONS}')
     fi
 fi
 
